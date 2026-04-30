@@ -1,0 +1,265 @@
+/* ================= FUNDO GLOBAL ================= */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(180deg, #c59d5f, #000);
+    color: white;
+}
+
+
+/* ================= FORMULÁRIO ================= */
+
+.form-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* 🔥 NÃO DEIXA DUPLICAR FUNDO */
+    background: none;
+}
+
+/* BOX */
+.form-box {
+    background: #111;
+    padding: 40px;
+    border-radius: 15px;
+    width: 500px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+/* TÍTULO */
+.form-box h2 {
+    margin-bottom: 20px;
+    color: #c59d5f;
+}
+
+/* GRUPO */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+/* LINHA (QUARTOS / BANHEIROS / VAGAS) */
+.form-row {
+    display: flex;
+    gap: 10px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+/* INPUT */
+.form-box input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+/* LABEL */
+.form-box label {
+    font-size: 13px;
+    margin-bottom: 5px;
+    color: #ccc;
+}
+
+/* BOTÃO */
+.form-box button {
+    width: 100%;
+    padding: 12px;
+    background: #c59d5f;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+/* HOVER */
+.form-box button:hover {
+    background: #d6b071;
+}
+/* LINHA */
+.linha {
+    margin: 40px 0;
+    border: 1px solid #333;
+}
+
+/* SUBTITULO */
+.subtitulo {
+    color: #c59d5f;
+    margin-bottom: 20px;
+}
+
+/* GRID ADMIN */
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* CARD */
+.admin-card {
+    background: #111;
+    border-radius: 12px;
+    overflow: hidden;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+/* IMG */
+.admin-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+
+/* INFO */
+.admin-info {
+    padding: 10px;
+}
+
+/* BOTÃO DELETE */
+.btn-delete {
+    width: 90%;
+    margin: 10px auto;
+    padding: 8px;
+    background: red;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.btn-editar {
+    width: 90%;
+    margin: 5px auto;
+    padding: 8px;
+    background: #c59d5f;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+/* ================= CADASTRAR / GERENCIAR ================= */
+
+.cadastrar-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #111;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* TÍTULO */
+.cadastrar-container h2 {
+    color: #c59d5f;
+    margin-bottom: 25px;
+}
+
+/* FORM */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* INPUTS */
+.form-group label {
+    margin-bottom: 5px;
+    font-size: 13px;
+    color: #aaa;
+}
+
+.form-group input,
+.form-group select {
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    background: #1a1a1a;
+    color: #fff;
+}
+
+/* BOTÃO */
+.form-btn {
+    margin-top: 20px;
+    grid-column: span 2;
+}
+
+.form-btn button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #c59d5f, #d4af37);
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form-btn button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(197,157,95,0.4);
+}
+
+/* RESPONSIVO */
+@media (max-width: 700px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-btn {
+        grid-column: span 1;
+    }
+}
+/* BOTÃO PRINCIPAL */
+button,
+.btn-premium {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 1px;
+
+    background: linear-gradient(135deg, #d4af37, #b8962e);
+    color: #000;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    box-shadow: 0 0 15px rgba(212,175,55,0.25);
+}
+
+/* HOVER */
+button:hover,
+.btn-premium:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(212,175,55,0.6);
+}
+
+/* CLICK */
+button:active {
+    transform: scale(0.97);
+}
+.btn-logout {
+    color: #d4af37;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn-logout:hover {
+    opacity: 0.7;
+}

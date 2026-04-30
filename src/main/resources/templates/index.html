@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<header class="header-premium">
+
+    <div class="animated-bg">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+        <div class="glow"></div>
+    </div>
+
+    <div class="header-top">
+
+        <img th:src="@{/img/logo.png}" class="logo">
+
+        <!-- SOCIAL FIXO -->
+        <div class="social-header">
+
+            <a href="https://wa.me/5521995358009" target="_blank">
+                <img th:src="@{/img/whatsapp.png}">
+            </a>
+
+            <a href="https://instagram.com/cmonaco.incorporadora" target="_blank">
+                <img th:src="@{/img/instagram.png}">
+            </a>
+
+        </div>
+
+    </div>
+
+    <nav class="navbar">
+        <a href="/" class="ativo">HOME</a>
+        <a href="/quem-somos">QUEM SOMOS</a>
+        <a href="/menu">IMÓVEIS</a>
+        <a href="/contato">CONTATO</a>
+    </nav>
+
+</header>
+
+<section class="destaque">
+
+    <h2 class="titulo">Imóveis em Destaque</h2>
+
+    <div class="grid">
+
+        <!-- PRINCIPAL -->
+        <div class="principal"
+             th:if="${novos.size() > 0}"
+             th:onclick="'window.location.href=\'/imovel/' + ${novos[0].id} + '\''">
+
+            <img th:src="@{${novos[0].imagens[0]}}">
+
+            <div class="overlay">
+
+                <h3 th:text="${novos[0].titulo}"></h3>
+
+                <p th:text="'R$ ' + ${#numbers.formatDecimal(novos[0].preco,1,'POINT',2,'COMMA')}"></p>
+
+                <div class="info-icons">
+
+                    <div>
+                        <img th:src="@{/img/casa.png}">
+                        <span th:text="${novos[0].quartos}"></span>
+                    </div>
+
+                    <div>
+                        <img th:src="@{/img/banheiro.png}">
+                        <span th:text="${novos[0].banheiros}"></span>
+                    </div>
+
+                    <div>
+                        <img th:src="@{/img/garagem.png}">
+                        <span th:text="${novos[0].vagas}"></span>
+                    </div>
+
+                    <div>
+                        <img th:src="@{/img/area.png}">
+                        <span th:text="${novos[0].area} + ' m²'"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- MINI -->
+        <div class="lateral">
+
+            <div class="mini"
+                 th:each="i, stat : ${novos}"
+                 th:if="${stat.index > 0 and stat.index < 3}"
+                 th:onclick="'window.location.href=\'/imovel/' + ${i.id} + '\''">
+
+                <img th:src="@{${i.imagens[0]}}">
+
+                <div class="overlay">
+                    <h4 th:text="${i.titulo}"></h4>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="btn-area">
+        <a href="/menu" class="btn">Ver todos os imóveis</a>
+    </div>
+
+</section>
+
+<footer class="footer">
+    <div class="footer-container">
+
+        <div class="footer-col">
+            <h3>Contato</h3>
+            <p>Cmonacoincorporadora@gmail.com</p>
+            <p>@cmonaco_incorporadora</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Atendimento</h3>
+            <p>(21) 99535-8009</p>
+            <p>(21) 99462-3268</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Institucional</h3>
+            <p>CNPJ: 24.873.323/0001-32</p>
+            <p>CRECI: 82535-J</p>
+        </div>
+
+        <div class="footer-col social">
+            <h3>Redes</h3>
+            <a href="https://wa.me/5521995358009" target="_blank">WhatsApp</a>
+            <a href="https://instagram.com/cmonaco.incorporadora" target="_blank">Instagram</a>
+        </div>
+
+    </div>
+</footer>
+
+</body>
+</html>
