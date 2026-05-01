@@ -6,6 +6,31 @@
     <title>Home</title>
 
     <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <!-- 🔥 FIX DOS ICONES DIRETO NO HTML -->
+    <style>
+        .info-icons img {
+            width: 20px !important;
+            height: 20px !important;
+            max-width: 20px !important;
+            max-height: 20px !important;
+            object-fit: contain !important;
+            display: inline-block !important;
+        }
+
+        .info-icons {
+            display: flex !important;
+            gap: 15px !important;
+            align-items: center !important;
+        }
+
+        .info-icons div {
+            display: flex !important;
+            align-items: center !important;
+            gap: 6px !important;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -46,7 +71,6 @@
              th:if="${novos != null and !novos.isEmpty()}"
              th:onclick="'window.location.href=\'/imovel/' + ${novos[0].id} + '\''">
 
-            <!-- 🔥 IMAGEM SEGURA -->
             <img th:src="${(novos[0].imagens != null and !novos[0].imagens.isEmpty()) 
                            ? novos[0].imagens[0] 
                            : '/img/logo.png'}">
@@ -88,7 +112,6 @@
                  th:if="${stat.index > 0 and stat.index < 3}"
                  th:onclick="'window.location.href=\'/imovel/' + ${i.id} + '\''">
 
-                <!-- 🔥 IMAGEM SEGURA -->
                 <img th:src="${(i.imagens != null and !i.imagens.isEmpty()) 
                                ? i.imagens[0] 
                                : '/img/logo.png'}">
