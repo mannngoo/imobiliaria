@@ -1546,58 +1546,46 @@ body::before {
 }
 
 /* =========================
-   MOBILE (ARRUMA DE VERDADE)
+   HEADER MOBILE CORRETO
 ========================= */
 @media (max-width: 768px) {
 
-    /* HEADER CENTRALIZADO */
+    /* HEADER EM COLUNA CENTRAL */
     .header-top {
+        display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 10px;
-        text-align: center;
+        padding: 10px 0;
     }
 
+    /* LOGO CENTRALIZADA */
     .logo {
         width: 140px;
         margin: 0 auto;
     }
 
-    /* NAVBAR BONITO */
-    .navbar {
-        flex-direction: column;
-        gap: 8px;
-        font-size: 14px;
-        align-items: center;
-    }
-
-    /* GRID VERTICAL */
-    .grid {
+    /* ICONES (ZAP E INSTA) NA MESMA LINHA */
+    .social-header {
         display: flex;
-        flex-direction: column;
-        padding: 10px;
+        justify-content: center;
+        gap: 15px;
     }
 
-    .principal {
-        height: 220px;
+    .social-header img {
+        width: 20px;
+        height: 20px;
     }
 
-    .mini {
-        height: 140px;
-    }
-
-    /* TEXTO */
-    .overlay h3 {
-        font-size: 14px;
-    }
-
-    .overlay p {
+    /* MENU ABAIXO BONITO */
+    .navbar {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
         font-size: 13px;
+        padding: 10px 0;
     }
 
-    /* ICONES PEQUENOS */
-.info-icons img {
-    width: 12px !important;
-    height: 12px !important;
 }
 
 /* ICONES MOBILE */
@@ -1606,5 +1594,4 @@ body::before {
         width: 12px;
         height: 12px;
     }
-}
 }
