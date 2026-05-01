@@ -2138,3 +2138,25 @@ html, body {
 .info-icons svg * {
     vector-effect: non-scaling-stroke;
 }
+/* =========================
+   FIX REAL DOS ICONES
+========================= */
+
+/* força tamanho dos icones (font icons) */
+.info-icons i {
+    font-size: 22px !important;
+    line-height: 1 !important;
+}
+
+/* garante alinhamento */
+.info-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.info-icons div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
