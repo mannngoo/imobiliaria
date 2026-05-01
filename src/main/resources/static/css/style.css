@@ -1488,3 +1488,35 @@ body::before {
   }
 
 }
+/* ===== CORREÇÃO FORTE MOBILE ===== */
+@media (max-width: 768px) {
+
+  * {
+    max-width: 100% !important;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .container,
+  .grid,
+  .card {
+    width: 100% !important;
+  }
+
+  .grid {
+    display: block !important;
+  }
+
+  .card {
+    margin-bottom: 15px;
+  }
+
+  img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover;
+  }
+
+}
