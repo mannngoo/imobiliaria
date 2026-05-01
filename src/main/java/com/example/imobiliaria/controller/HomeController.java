@@ -1,10 +1,8 @@
 package com.example.imobiliaria.controller;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,13 +14,18 @@ import com.example.imobiliaria.repository.ImovelRepository;
 
 import jakarta.servlet.http.HttpSession;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
+
 @Controller
 public class HomeController {
 
     private final ImovelRepository repository;
+    private final Cloudinary cloudinary;
 
-    public HomeController(ImovelRepository repository) {
+    public HomeController(ImovelRepository repository, Cloudinary cloudinary) {
         this.repository = repository;
+        this.cloudinary = cloudinary;
     }
 
     @GetMapping("/")
@@ -111,17 +114,14 @@ public class HomeController {
             if (!file.isEmpty()) {
                 try {
 
-                    // 🔥 NOME CORRIGIDO (SEM CARACTERES PROBLEMÁTICOS)
-                    String nome = System.currentTimeMillis() + "_" +
-                            file.getOriginalFilename().replaceAll("[^a-zA-Z0-9\\.\\-]", "_");
+                    Map uploadResult = cloudinary.uploader().upload(
+                            file.getBytes(),
+                            ObjectUtils.emptyMap()
+                    );
 
-                    Path pasta = Paths.get("uploads");
-                    Files.createDirectories(pasta);
+                    String url = uploadResult.get("secure_url").toString();
 
-                    Path caminho = pasta.resolve(nome);
-                    Files.write(caminho, file.getBytes());
-
-                    caminhos.add("uploads/" + nome);
+                    caminhos.add(url);
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -211,25 +211,5 @@ public class HomeController {
     @GetMapping("/quem-somos")
     public String quemSomos() {
         return "quem-somos";
-    }
-
-    // 🔥 ROTA FINAL PRA SERVIR IMAGEM (SEM ERRO)
-    @GetMapping("/uploads/{nome:.+}")
-    @ResponseBody
-    public byte[] getImagem(@PathVariable String nome) {
-
-        try {
-            Path caminho = Paths.get("uploads").resolve(nome);
-
-            if (!Files.exists(caminho)) {
-                return null;
-            }
-
-            return Files.readAllBytes(caminho);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
     }
 }

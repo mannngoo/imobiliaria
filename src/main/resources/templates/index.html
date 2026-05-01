@@ -46,7 +46,8 @@
              th:if="${novos.size() > 0}"
              th:onclick="'window.location.href=\'/imovel/' + ${novos[0].id} + '\''">
 
-            <img th:src="@{'/' + ${novos[0].imagens[0]}}">
+            <!-- 🔥 CLOUDINARY -->
+            <img th:src="${novos[0].imagens[0]}">
 
             <div class="overlay">
                 <h3 th:text="${novos[0].titulo}"></h3>
@@ -85,7 +86,8 @@
                  th:if="${stat.index > 0 and stat.index < 3}"
                  th:onclick="'window.location.href=\'/imovel/' + ${i.id} + '\''">
 
-                <img th:src="@{'/' + ${i.imagens[0]}}">
+                <!-- 🔥 CLOUDINARY -->
+                <img th:src="${i.imagens[0]}">
 
                 <div class="overlay">
                     <h4 th:text="${i.titulo}"></h4>
