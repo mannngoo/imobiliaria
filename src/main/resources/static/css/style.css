@@ -2160,3 +2160,7 @@ html, body {
     align-items: center;
     gap: 6px;
 }
+.info-icons * {
+    max-width: 24px !important;
+    max-height: 24px !important;
+}
