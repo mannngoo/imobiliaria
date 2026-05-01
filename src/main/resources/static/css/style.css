@@ -2119,7 +2119,39 @@ html, body {
     align-items: center;
     gap: 5px;
 }
+/* =========================
+   FIX TOTAL ICONES
+========================= */
+
+/* ZERA QUALQUER TAMANHO ANTERIOR */
+.info-icons,
+.info-icons * {
+    all: unset;
+}
+
+/* RECONSTRÓI DO ZERO */
+.info-icons {
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+    font-size: 14px !important;
+}
+
+.info-icons div {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+/* TAMANHO REAL DOS ICONES */
 .info-icons img {
-    transform: scale(0.4);
-    transform-origin: left center;
+    width: 18px !important;
+    height: 18px !important;
+    object-fit: contain !important;
+}
+
+/* GARANTE QUE NÃO HERDA TAMANHO GIGANTE */
+.info-icons svg {
+    width: 18px !important;
+    height: 18px !important;
 }
