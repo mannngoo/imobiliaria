@@ -1594,15 +1594,17 @@ body::before {
         font-size: 13px;
     }
 
-    /* ICONES */
-    .info-icons {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        font-size: 5px;
-    }
+    /* ICONES PEQUENOS */
+.info-icons img {
+    width: 16px;
+    height: 16px;
+}
 
+/* ICONES MOBILE */
+@media (max-width: 768px) {
     .info-icons img {
-        width: 1px;
+        width: 12px;
+        height: 12px;
     }
+}
 }
