@@ -1816,33 +1816,140 @@ html, body {
 }
 @media (max-width: 768px) {
 
-    /* LINHA DO HEADER PERFEITA */
+ /* =========================
+   HEADER GLOBAL (TODAS PAGINAS)
+========================= */
+.header-premium {
+    width: 100%;
+    position: relative;
+    z-index: 999;
+}
+
+/* TOPO PADRÃO */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+/* LOGO */
+.logo {
+    width: 160px;
+    height: auto;
+}
+
+/* ICONES */
+.social-header {
+    display: flex;
+    gap: 15px;
+}
+
+.social-header img {
+    width: 22px;
+    height: 22px;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 10px 0;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+/* =========================
+   HEADER GLOBAL (TRAVADO)
+========================= */
+.header-premium {
+    width: 100%;
+    position: relative;
+    z-index: 999;
+}
+
+/* TOPO: LOGO + ICONES NA MESMA LINHA */
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+/* LOGO SEMPRE VISÍVEL */
+.logo {
+    width: 140px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* ICONES AO LADO DIREITO */
+.social-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.social-header img {
+    width: 22px;
+    height: 22px;
+    display: block;
+}
+
+/* MENU */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* =========================
+   MOBILE (PERFEITO)
+========================= */
+@media (max-width: 768px) {
+
+    /* HEADER MAIS COMPACTO */
     .header-top {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 10px;
-        height: 55px;
+        padding: 5px 10px;
+        height: 50px;
     }
 
-    /* LOGO AJUSTADA */
+    /* LOGO MENOR PRA CABER */
     .logo {
-        width: 85px;
-        height: auto;
-        display: block;
+        width: 80px;
     }
 
     /* ICONES ALINHADOS */
     .social-header {
-        display: flex;
-        align-items: center;
-        gap: 10px;
+        gap: 8px;
     }
 
     .social-header img {
-        width: 18px;
-        height: 18px;
-        display: block;
+        width: 16px;
+        height: 16px;
     }
 
+    /* MENU MENOR */
+    .navbar {
+        font-size: 11px;
+        gap: 10px;
+        padding: 5px 0;
+    }
+
+    .navbar a {
+        font-size: 11px;
+    }
 }
