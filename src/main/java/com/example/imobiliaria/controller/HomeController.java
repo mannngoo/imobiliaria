@@ -110,15 +110,15 @@ public class HomeController {
         for (MultipartFile file : imagens) {
             if (!file.isEmpty()) {
                 try {
+
                     String nome = System.currentTimeMillis() + "_" + file.getOriginalFilename();
 
-                    // 🔥 SALVA FORA DO STATIC (FUNCIONA NO RAILWAY)
-                    Path caminho = Paths.get(System.getProperty("user.dir") + "/uploads/" + nome);
+                    Path pasta = Paths.get("uploads");
+                    Files.createDirectories(pasta);
 
-                    Files.createDirectories(caminho.getParent());
+                    Path caminho = pasta.resolve(nome);
                     Files.write(caminho, file.getBytes());
 
-                    // 🔥 CAMINHO CORRETO PRA EXIBIR
                     caminhos.add("uploads/" + nome);
 
                 } catch (Exception e) {
