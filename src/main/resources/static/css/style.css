@@ -2095,3 +2095,7 @@ html, body {
         filter: blur(60px);
     }
 }
+/* FORÇA COR DOS LINKS DO MENU */
+.navbar a {
+    color: #ffffff !important;
+}
