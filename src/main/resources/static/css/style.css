@@ -2111,41 +2111,27 @@ html, body {
     align-items: center;
     gap: 5px;
 }
-
 /* =========================
-   FIX DEFINITIVO ICONES
+   FIX REAL PARA SVG ICONES
 ========================= */
 
-/* força o container */
-.info-icons {
-    display: flex !important;
-    gap: 20px !important;
-    align-items: center !important;
-}
-
-/* cada item */
-.info-icons div {
-    display: flex !important;
-    align-items: center !important;
-    gap: 6px !important;
-}
-
-/* 👇 ISSO AQUI RESOLVE DE VERDADE */
-.info-icons img,
 .info-icons svg {
-    width: 20px !important;
-    height: 20px !important;
-    max-width: 20px !important;
-    max-height: 20px !important;
-    object-fit: contain !important;
+    width: 24px !important;
+    height: 24px !important;
+    max-width: 24px !important;
+    max-height: 24px !important;
+    flex: 0 0 auto !important;
 }
 
-/* remove QUALQUER escala herdada */
-.info-icons * {
-    transform: none !important;
+/* garante alinhamento */
+.info-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-/* garante que não ocupem tela inteira */
-.info-icons img {
-    display: inline-block !important;
+.info-icons div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
