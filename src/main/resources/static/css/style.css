@@ -1953,3 +1953,82 @@ html, body {
         font-size: 11px;
     }
 }
+/* =========================
+   ANIMAÇÃO HEADER (RESTORE)
+========================= */
+.animated-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.wave {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: rgba(255,255,255,0.05);
+    border-radius: 40%;
+    animation: waveMove 10s infinite linear;
+}
+
+.wave1 { top: -50%; left: -50%; }
+.wave2 { top: -60%; left: -60%; animation-duration: 15s; }
+.wave3 { top: -70%; left: -70%; animation-duration: 20s; }
+
+@keyframes waveMove {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* =========================
+   FIX FINAL LOGO + ICONES
+========================= */
+
+/* GARANTE LINHA CERTA */
+.header-top {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100%;
+}
+
+/* LOGO SEMPRE À ESQUERDA */
+.logo {
+    width: 85px !important;
+    height: auto !important;
+    object-fit: contain !important;
+}
+
+/* ICONES SEMPRE À DIREITA */
+.social-header {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin-left: auto !important; /* empurra pra direita */
+}
+
+/* TAMANHO ICONES */
+.social-header img {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+/* MOBILE AJUSTE FINAL */
+@media (max-width: 768px) {
+
+    .header-top {
+        padding: 5px 10px !important;
+        height: 50px !important;
+    }
+
+    .logo {
+        width: 75px !important;
+    }
+
+    .social-header img {
+        width: 16px !important;
+        height: 16px !important;
+    }
+
+}
