@@ -1488,40 +1488,71 @@ body::before {
   }
 
 }
-/* ===== CORREÇÃO FORTE MOBILE ===== */
+/* ===== FIX MOBILE LIMPO (SEM QUEBRAR) ===== */
 @media (max-width: 768px) {
 
-  * {
-    max-width: 100% !important;
-  }
-
+  /* evita corte lateral */
   body {
     overflow-x: hidden;
   }
 
-  .container,
-  .grid,
-  .card {
-    width: 100% !important;
-  }
-
+  /* grid em coluna */
   .grid {
-    display: block !important;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
 
-  .card {
-    margin-bottom: 15px;
+  /* cards ocupam tudo */
+  .principal,
+  .mini {
+    width: 100%;
   }
 
-  img {
-    width: 100% !important;
-    height: auto !important;
+  /* imagens principais */
+  .principal img,
+  .mini img {
+    width: 100%;
+    height: 220px;
     object-fit: cover;
   }
 
-}
-@media (max-width: 768px) {
-  .sua-classe {
-    overflow: visible !important;
+  /* ===== CORREÇÃO DOS ÍCONES (principal problema) ===== */
+  .info-icons {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
   }
+
+  .info-icons div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .info-icons img {
+    width: 18px !important;
+    height: 18px !important;
+    object-fit: contain;
+  }
+
+  .info-icons span {
+    font-size: 13px;
+  }
+
+  /* overlay não estoura */
+  .overlay {
+    padding: 10px;
+  }
+
+  /* títulos ajustados */
+  h3 {
+    font-size: 16px;
+  }
+
+  h4 {
+    font-size: 14px;
+  }
+
 }
