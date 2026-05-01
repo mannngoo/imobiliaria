@@ -78,62 +78,71 @@ public class HomeController {
         return "cadastrar";
     }
 
-    @PostMapping("/salvar")
-    public String salvar(
-            @RequestParam String titulo,
-            @RequestParam double preco,
-            @RequestParam String endereco,
-            @RequestParam int quartos,
-            @RequestParam int banheiros,
-            @RequestParam int vagas,
-            @RequestParam String latitude,
-            @RequestParam String longitude,
-            @RequestParam String tipo,
-            @RequestParam double area,
-            @RequestParam String categoria,
-            @RequestParam("imagens") List<MultipartFile> imagens
-    ) {
+  @PostMapping("/salvar")
+public String salvar(
+        @RequestParam String titulo,
+        @RequestParam double preco,
+        @RequestParam String endereco,
+        @RequestParam int quartos,
+        @RequestParam int banheiros,
+        @RequestParam int vagas,
+        @RequestParam String latitude,
+        @RequestParam String longitude,
+        @RequestParam String tipo,
+        @RequestParam double area,
+        @RequestParam String categoria,
+        @RequestParam("imagens") List<MultipartFile> imagens
+) {
 
-        Imovel imovel = new Imovel();
+    Imovel imovel = new Imovel();
 
-        imovel.setTitulo(titulo);
-        imovel.setPreco(preco);
-        imovel.setEndereco(endereco);
-        imovel.setQuartos(quartos);
-        imovel.setBanheiros(banheiros);
-        imovel.setVagas(vagas);
-        imovel.setLatitude(latitude);
-        imovel.setLongitude(longitude);
-        imovel.setTipo(tipo);
-        imovel.setArea(area);
-        imovel.setCategoria(categoria);
+    imovel.setTitulo(titulo);
+    imovel.setPreco(preco);
+    imovel.setEndereco(endereco);
+    imovel.setQuartos(quartos);
+    imovel.setBanheiros(banheiros);
+    imovel.setVagas(vagas);
+    imovel.setLatitude(latitude);
+    imovel.setLongitude(longitude);
+    imovel.setTipo(tipo);
+    imovel.setArea(area);
+    imovel.setCategoria(categoria);
 
-        List<String> caminhos = new ArrayList<>();
+    List<String> caminhos = new ArrayList<>();
 
-        for (MultipartFile file : imagens) {
-            if (!file.isEmpty()) {
-                try {
+    for (MultipartFile file : imagens) {
+        if (!file.isEmpty()) {
+            try {
 
-                    Map uploadResult = cloudinary.uploader().upload(
-                            file.getBytes(),
-                            ObjectUtils.emptyMap()
-                    );
+                // 🔥 UPLOAD CLOUDINARY
+                Map uploadResult = cloudinary.uploader().upload(
+                        file.getBytes(),
+                        ObjectUtils.emptyMap()
+                );
 
-                    String url = uploadResult.get("secure_url").toString();
+                System.out.println("UPLOAD RESULT: " + uploadResult);
 
-                    caminhos.add(url);
+                // 🔥 PEGA URL
+                String url = uploadResult.get("secure_url").toString();
 
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                System.out.println("URL GERADA: " + url);
+
+                caminhos.add(url);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+
+                // 🔥 AGORA NÃO FALHA SILENCIOSO
+                throw new RuntimeException("Erro ao enviar imagem pro Cloudinary");
             }
         }
-
-        imovel.setImagens(caminhos);
-        repository.save(imovel);
-
-        return "redirect:/cadastrar";
     }
+
+    imovel.setImagens(caminhos);
+    repository.save(imovel);
+
+    return "redirect:/cadastrar";
+}
 
     @GetMapping("/imovel/editar/{id}")
     public String editar(@PathVariable Long id, Model model, HttpSession session) {
