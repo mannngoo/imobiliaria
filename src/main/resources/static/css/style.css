@@ -2119,3 +2119,9 @@ html, body {
     align-items: center;
     gap: 5px;
 }
+/* ICONES PEQUENOS NO PC (FORÇADO) */
+.info-icons img {
+    width: 18px !important;
+    height: 18px !important;
+    max-width: 18px !important;
+}
