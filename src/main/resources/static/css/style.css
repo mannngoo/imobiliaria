@@ -605,14 +605,6 @@
     width: 16px;
     filter: brightness(0) invert(1);
 }
-/* ===== RESET FORÇADO DO DESTAQUE ===== */
-
-.principal,
-.principal * {
-    all: unset;
-    all: revert;
-}
-
 /* recria estrutura limpa */
 .principal {
     position: relative;
@@ -2120,14 +2112,45 @@ html, body {
     gap: 5px;
 }
 
-/* IMPEDE QUE IMG GLOBAL AFETE OS ICONES */
-.principal img {
-    width: auto !important;
-}
+/* =========================
+   FIX FINAL DOS ICONES (PC)
+========================= */
+
+/* garante que só a imagem principal ocupa 100% */
 .principal > img {
-    width: 100%;
+    width: 100% !important;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
 }
+
+/* impede que outras imagens (ícones) herdem tamanho errado */
+.principal img:not(:first-child) {
+    width: auto !important;
+    height: auto !important;
+}
+
+/* tamanho correto dos ícones */
 .info-icons img {
-    width: 20px !important;
-    height: 20px !important;
+    width: 18px !important;
+    height: 18px !important;
+    object-fit: contain !important;
+}
+
+/* alinhamento */
+.info-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.info-icons div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.info-icons span {
+    font-size: 13px;
+    color: #ddd;
 }
