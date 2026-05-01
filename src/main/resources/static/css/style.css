@@ -1455,39 +1455,7 @@ body::before {
 
     transition: 0.3s ease !important;
 }
-/* ===== MOBILE PROFISSIONAL ===== */
-@media (max-width: 768px) {
 
-  .grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  .card {
-    width: 100% !important;
-  }
-
-  .card img {
-    height: 200px;
-    object-fit: cover;
-  }
-
-  .card-content {
-    padding: 12px;
-  }
-
-  h1 {
-    font-size: 22px;
-  }
-
-  h2 {
-    font-size: 16px;
-  }
-
-  p {
-    font-size: 14px;
-  }
-
-}
 /* ===== FIX MOBILE LIMPO (SEM QUEBRAR) ===== */
 @media (max-width: 768px) {
 
