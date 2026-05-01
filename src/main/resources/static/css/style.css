@@ -2123,3 +2123,28 @@ html, body {
     width: 22px !important;
     height: 22px !important;
 }
+/* RESET TOTAL DOS ICONES */
+.info-icons img {
+    width: 18px !important;
+    height: 18px !important;
+    max-width: 18px !important;
+}
+
+/* GARANTE QUE O SVG/IMG NÃO ESTOURE */
+.info-icons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.info-icons div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* SE FOR SVG OU ICON GIGANTE */
+.info-icons svg {
+    width: 18px !important;
+    height: 18px !important;
+}
