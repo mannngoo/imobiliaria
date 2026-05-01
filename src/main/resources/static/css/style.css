@@ -1455,4 +1455,31 @@ body::before {
 
     transition: 0.3s ease !important;
 }
+/* ===== FOOTER MOBILE FIX ===== */
+@media (max-width: 768px) {
 
+  footer {
+    padding: 20px 10px;
+    text-align: center;
+  }
+
+  footer .container,
+  footer .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  footer p,
+  footer a {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  footer img {
+    max-width: 100%;
+    height: auto;
+  }
+
+}
