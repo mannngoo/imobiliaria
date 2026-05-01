@@ -2099,3 +2099,23 @@ html, body {
 .navbar a {
     color: #ffffff !important;
 }
+/* TAMANHO CORRETO DOS ICONES NO PC */
+.info-icons img {
+    width: 22px;
+    height: 22px;
+}
+
+/* AJUSTE DO TEXTO AO LADO */
+.info-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 14px;
+}
+
+/* CADA BLOCO */
+.info-icons div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
