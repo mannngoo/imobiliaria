@@ -2135,3 +2135,6 @@ html, body {
     align-items: center;
     gap: 6px;
 }
+.info-icons svg * {
+    vector-effect: non-scaling-stroke;
+}
