@@ -1455,35 +1455,137 @@ body::before {
 
     transition: 0.3s ease !important;
 }
-.overlay {
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+/* =========================
+   RESET FORÇADO (ARRUMA TUDO)
+========================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
+/* =========================
+   HEADER
+========================= */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+.logo {
+    width: 180px;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px 0;
+    font-size: 16px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+/* =========================
+   GRID
+========================= */
+.grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    padding: 20px 40px;
+}
+
+.lateral {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.principal {
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.mini {
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* IMAGENS */
+.principal img,
+.mini img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* =========================
+   OVERLAY (REMOVE BLOCO PRETO)
+========================= */
+.overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.7),
+        rgba(0,0,0,0.2),
+        transparent
+    );
+}
+
+/* =========================
+   MOBILE (ARRUMA DE VERDADE)
+========================= */
 @media (max-width: 768px) {
 
-    .grid {
-        display: block;
-        padding: 10px;
-    }
-
-    .principal {
-        height: 200px;
-        margin-bottom: 15px;
-    }
-
-    .mini {
-        height: 120px;
-        margin-bottom: 10px;
-    }
-
-    .navbar {
-        font-size: 14px;
+    /* HEADER CENTRALIZADO */
+    .header-top {
+        flex-direction: column;
+        gap: 10px;
         text-align: center;
     }
 
     .logo {
-        width: 130px;
+        width: 140px;
+        margin: 0 auto;
     }
 
+    /* NAVBAR BONITO */
+    .navbar {
+        flex-direction: column;
+        gap: 8px;
+        font-size: 14px;
+        align-items: center;
+    }
+
+    /* GRID VERTICAL */
+    .grid {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .principal {
+        height: 220px;
+    }
+
+    .mini {
+        height: 140px;
+    }
+
+    /* TEXTO */
     .overlay h3 {
         font-size: 14px;
     }
@@ -1492,49 +1594,15 @@ body::before {
         font-size: 13px;
     }
 
+    /* ICONES */
     .info-icons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
         font-size: 12px;
     }
-}
-.overlay {
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-}
 
-@media (max-width: 768px) {
-
-    .grid {
-        display: block;
-        padding: 10px;
-    }
-
-    .principal {
-        height: 200px;
-        margin-bottom: 15px;
-    }
-
-    .mini {
-        height: 120px;
-        margin-bottom: 10px;
-    }
-
-    .navbar {
-        font-size: 14px;
-        text-align: center;
-    }
-
-    .logo {
-        width: 130px;
-    }
-
-    .overlay h3 {
-        font-size: 14px;
-    }
-
-    .overlay p {
-        font-size: 13px;
-    }
-
-    .info-icons {
-        font-size: 12px;
+    .info-icons img {
+        width: 14px;
     }
 }
