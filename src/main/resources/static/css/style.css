@@ -1524,3 +1524,86 @@ body::before {
   }
 
 }
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .header-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo {
+    width: 120px;
+  }
+
+  .social-header img {
+    width: 22px;
+  }
+
+  .navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  .grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .principal,
+  .mini {
+    width: 100%;
+  }
+
+  .principal img,
+  .mini img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .overlay {
+    padding: 10px;
+  }
+
+  .overlay h3 {
+    font-size: 16px;
+  }
+
+  .overlay p {
+    font-size: 14px;
+  }
+
+  .info-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: space-between;
+  }
+
+  .info-icons img {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .info-icons span {
+    font-size: 12px;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+}

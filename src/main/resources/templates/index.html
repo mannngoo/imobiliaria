@@ -12,15 +12,7 @@
 
 <header class="header-premium">
 
-    <div class="animated-bg">
-        <div class="wave wave1"></div>
-        <div class="wave wave2"></div>
-        <div class="wave wave3"></div>
-        <div class="glow"></div>
-    </div>
-
     <div class="header-top">
-
         <img th:src="@{/img/logo.png}" class="logo">
 
         <div class="social-header">
@@ -32,11 +24,10 @@
                 <img th:src="@{/img/instagram.png}">
             </a>
         </div>
-
     </div>
 
     <nav class="navbar">
-        <a href="/" class="ativo">HOME</a>
+        <a href="/">HOME</a>
         <a href="/quem-somos">QUEM SOMOS</a>
         <a href="/menu">IMÓVEIS</a>
         <a href="/contato">CONTATO</a>
@@ -55,16 +46,13 @@
              th:if="${novos.size() > 0}"
              th:onclick="'window.location.href=\'/imovel/' + ${novos[0].id} + '\''">
 
-            <img th:src="@{'/img/' + ${novos[0].imagens[0]}}">
+            <img th:src="${novos[0].imagens[0]}">
 
             <div class="overlay">
-
                 <h3 th:text="${novos[0].titulo}"></h3>
-
                 <p th:text="'R$ ' + ${#numbers.formatDecimal(novos[0].preco,1,'POINT',2,'COMMA')}"></p>
 
                 <div class="info-icons">
-
                     <div>
                         <img th:src="@{/img/casa.png}">
                         <span th:text="${novos[0].quartos}"></span>
@@ -84,9 +72,7 @@
                         <img th:src="@{/img/area.png}">
                         <span th:text="${novos[0].area} + ' m²'"></span>
                     </div>
-
                 </div>
-
             </div>
 
         </div>
@@ -99,7 +85,7 @@
                  th:if="${stat.index > 0 and stat.index < 3}"
                  th:onclick="'window.location.href=\'/imovel/' + ${i.id} + '\''">
 
-                <img th:src="@{'/img/' + ${i.imagens[0]}}">
+                <img th:src="${i.imagens[0]}">
 
                 <div class="overlay">
                     <h4 th:text="${i.titulo}"></h4>
