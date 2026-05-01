@@ -2119,3 +2119,7 @@ html, body {
     align-items: center;
     gap: 5px;
 }
+.info-icons img {
+    width: 22px !important;
+    height: 22px !important;
+}
