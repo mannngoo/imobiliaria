@@ -2119,11 +2119,3 @@ html, body {
     align-items: center;
     gap: 5px;
 }
-
-.info-icons img {
-    width: 6px !important;
-    height: auto !important;
-}
-img {
-    width: 50%;
-}
