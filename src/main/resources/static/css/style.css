@@ -1599,10 +1599,10 @@ body::before {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
-        font-size: 12px;
+        font-size: 5px;
     }
 
     .info-icons img {
-        width: 14px;
+        width: 1px;
     }
 }
