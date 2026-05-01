@@ -6,15 +6,12 @@
 <title>Quem Somos</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" th:href="@{/css/style.css}">
 
 <style>
 
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* 🔥 REMOVE CONFLITO DO HEADER ANTIGO */
+/* NÃO TEM MAIS .header OU .nav */
 
 /* FUNDO GLOBAL ANIMADO */
 body {
@@ -28,7 +25,7 @@ body::before {
     content: "";
     position: fixed;
     inset: -30%;
-    z-index: -1;
+    z-index: -2;
 
     background: linear-gradient(
         -45deg,
@@ -51,31 +48,6 @@ body::before {
     100% { transform: translate(0,0) scale(1); }
 }
 
-/* HEADER */
-.header {
-    display: flex;
-    justify-content: center;
-    padding: 25px 0;
-    background: rgba(20,20,20,0.7);
-    backdrop-filter: blur(10px);
-}
-
-.nav {
-    display: flex;
-    gap: 60px;
-}
-
-.nav a {
-    text-decoration: none;
-    color: #fff;
-    letter-spacing: 2px;
-    font-size: 14px;
-}
-
-.nav a:hover {
-    color: #d4af37;
-}
-
 /* HERO */
 .hero {
     height: 70vh;
@@ -84,10 +56,8 @@ body::before {
     padding: 0 10%;
     position: relative;
     background: #050505;
-    overflow: hidden;
 }
 
-/* LUZ ATRÁS DO TEXTO */
 .hero::before {
     content: "";
     position: absolute;
@@ -98,7 +68,6 @@ body::before {
         radial-gradient(circle at 70% 60%, rgba(255,255,255,0.05), transparent 50%);
 
     filter: blur(100px);
-    opacity: 1;
     z-index: 0;
 }
 
@@ -113,24 +82,11 @@ body::before {
     font-size: 64px;
     color: #e6c36a;
     margin-bottom: 20px;
-
-    text-shadow: 0 0 20px rgba(212,175,55,0.3);
-}
-
-.hero h1::after {
-    content: "";
-    display: block;
-    width: 80px;
-    height: 2px;
-    margin-top: 15px;
-
-    background: linear-gradient(to right, #d4af37, transparent);
 }
 
 .hero p {
     font-size: 18px;
     color: #ccc;
-    opacity: 0.9;
 }
 
 /* CONTAINER */
@@ -162,17 +118,10 @@ body::before {
     padding: 30px;
     border-radius: 15px;
     backdrop-filter: blur(8px);
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    border-color: #d4af37;
 }
 
 .card h2 {
     color: #d4af37;
-    margin-bottom: 10px;
 }
 
 /* NÚMEROS */
@@ -211,25 +160,42 @@ body::before {
     text-decoration: none;
 }
 
-.cta a:hover {
-    background: #d4af37;
-    color: #000;
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<div class="header">
-    <div class="nav">
+<!-- 🔥 HEADER PADRÃO -->
+<header class="header-premium">
+
+    <div class="animated-bg">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+    </div>
+
+    <div class="header-top">
+        <img src="/img/logo.png" class="logo">
+
+        <div class="social-header">
+            <a href="https://wa.me/5521995358009">
+                <img src="/img/whatsapp.png">
+            </a>
+
+            <a href="https://instagram.com/cmonaco.incorporadora">
+                <img src="/img/instagram.png">
+            </a>
+        </div>
+    </div>
+
+    <nav class="navbar">
         <a href="/">HOME</a>
         <a href="/quem-somos">QUEM SOMOS</a>
         <a href="/menu">IMÓVEIS</a>
         <a href="/contato">CONTATO</a>
-    </div>
-</div>
+    </nav>
+
+</header>
 
 <!-- HERO -->
 <section class="hero">
