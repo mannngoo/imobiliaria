@@ -1553,24 +1553,40 @@ body::before {
     }
 }
 /* =========================
-   MOBILE APP MODE (TOTAL)
+   RESET FORTE (evita bug)
+========================= */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* impede página gigante lateral */
+    font-family: Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* =========================
+   MOBILE TOTAL
 ========================= */
 @media (max-width: 768px) {
 
+    /* BODY LIMPO */
     body {
-        padding: 0;
-        margin: 0;
+        width: 100%;
+        overflow-x: hidden;
     }
 
-    /* HEADER */
+    /* HEADER FIXO BONITO */
     .header-premium {
         position: sticky;
         top: 0;
         z-index: 999;
         background: #0f172a;
-        padding: 10px 0;
+        padding: 10px;
     }
 
+    /* TOPO */
     .header-top {
         display: flex;
         flex-direction: column;
@@ -1579,14 +1595,12 @@ body::before {
     }
 
     .logo {
-        width: 120px;
-        margin: 0 auto;
+        width: 110px;
     }
 
     .social-header {
         display: flex;
-        gap: 15px;
-        justify-content: center;
+        gap: 12px;
     }
 
     .social-header img {
@@ -1594,15 +1608,19 @@ body::before {
         height: 20px;
     }
 
-    /* MENU */
+    /* MENU ESTILO APP */
     .navbar {
         display: flex;
         justify-content: space-around;
-        align-items: center;
         width: 100%;
-        padding: 10px 0;
         font-size: 12px;
+        padding: 8px 0;
         border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
     }
 
     /* CONTEÚDO */
@@ -1618,25 +1636,31 @@ body::before {
 
     /* GRID VIRA LISTA */
     .grid {
-        display: flex;
-        flex-direction: column;
+        display: flex !important;
+        flex-direction: column !important;
         gap: 15px;
-        padding: 0;
     }
 
+    .lateral {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* CARDS */
     .principal {
         height: 220px;
-        border-radius: 12px;
+        border-radius: 10px;
         overflow: hidden;
     }
 
     .mini {
-        height: 140px;
-        border-radius: 12px;
+        height: 130px;
+        border-radius: 10px;
         overflow: hidden;
     }
 
-    /* IMAGEM */
+    /* IMAGENS */
     .principal img,
     .mini img {
         width: 100%;
@@ -1646,29 +1670,28 @@ body::before {
 
     /* OVERLAY */
     .overlay {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
         padding: 10px;
-        background: linear-gradient(
-            to top,
-            rgba(0,0,0,0.7),
-            transparent
-        );
+        background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
     }
 
     /* TEXTO */
     .overlay h3 {
-        font-size: 14px;
-        margin-bottom: 5px;
+        font-size: 13px;
+        margin-bottom: 3px;
     }
 
     .overlay p {
-        font-size: 13px;
+        font-size: 12px;
     }
 
     /* ICONES */
     .info-icons {
         display: flex;
         flex-wrap: wrap;
-        gap: 6px;
+        gap: 5px;
         font-size: 11px;
     }
 
@@ -1684,19 +1707,19 @@ body::before {
     }
 
     .btn {
-        padding: 10px 15px;
+        padding: 10px;
         font-size: 14px;
     }
 
     /* FOOTER */
     .footer {
-        padding: 20px 10px;
         text-align: center;
+        padding: 15px;
     }
 
     .footer-container {
         display: flex;
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
     }
 }
