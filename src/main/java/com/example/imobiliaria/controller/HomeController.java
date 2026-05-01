@@ -210,4 +210,12 @@ public class HomeController {
     public String quemSomos() {
         return "quem-somos";
     }
+    @GetMapping("/uploads/{nome}")
+@ResponseBody
+public byte[] getImagem(@PathVariable String nome) throws Exception {
+
+    Path caminho = Paths.get("uploads").resolve(nome);
+
+    return Files.readAllBytes(caminho);
+}
 }
