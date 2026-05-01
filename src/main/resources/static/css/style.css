@@ -1814,3 +1814,35 @@ html, body {
     }
 
 }
+@media (max-width: 768px) {
+
+    /* LINHA DO HEADER PERFEITA */
+    .header-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px;
+        height: 55px;
+    }
+
+    /* LOGO AJUSTADA */
+    .logo {
+        width: 85px;
+        height: auto;
+        display: block;
+    }
+
+    /* ICONES ALINHADOS */
+    .social-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .social-header img {
+        width: 18px;
+        height: 18px;
+        display: block;
+    }
+
+}
