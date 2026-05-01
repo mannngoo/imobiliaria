@@ -111,7 +111,9 @@ public class HomeController {
             if (!file.isEmpty()) {
                 try {
 
-                    String nome = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+                    // 🔥 NOME CORRIGIDO (SEM CARACTERES PROBLEMÁTICOS)
+                    String nome = System.currentTimeMillis() + "_" +
+                            file.getOriginalFilename().replaceAll("[^a-zA-Z0-9\\.\\-]", "_");
 
                     Path pasta = Paths.get("uploads");
                     Files.createDirectories(pasta);
@@ -210,12 +212,24 @@ public class HomeController {
     public String quemSomos() {
         return "quem-somos";
     }
-    @GetMapping("/uploads/{nome}")
-@ResponseBody
-public byte[] getImagem(@PathVariable String nome) throws Exception {
 
-    Path caminho = Paths.get("uploads").resolve(nome);
+    // 🔥 ROTA FINAL PRA SERVIR IMAGEM (SEM ERRO)
+    @GetMapping("/uploads/{nome:.+}")
+    @ResponseBody
+    public byte[] getImagem(@PathVariable String nome) {
 
-    return Files.readAllBytes(caminho);
-}
+        try {
+            Path caminho = Paths.get("uploads").resolve(nome);
+
+            if (!Files.exists(caminho)) {
+                return null;
+            }
+
+            return Files.readAllBytes(caminho);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
