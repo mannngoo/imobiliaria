@@ -1545,31 +1545,48 @@ body::before {
     );
 }
 
+/* ICONES MOBILE */
+@media (max-width: 768px) {
+    .info-icons img {
+        width: 12px;
+        height: 12px;
+    }
+}
 /* =========================
-   HEADER MOBILE CORRETO
+   MOBILE APP MODE (TOTAL)
 ========================= */
 @media (max-width: 768px) {
 
-    /* HEADER EM COLUNA CENTRAL */
+    body {
+        padding: 0;
+        margin: 0;
+    }
+
+    /* HEADER */
+    .header-premium {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        background: #0f172a;
+        padding: 10px 0;
+    }
+
     .header-top {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 10px;
-        padding: 10px 0;
+        gap: 8px;
     }
 
-    /* LOGO CENTRALIZADA */
     .logo {
-        width: 130px;
+        width: 120px;
         margin: 0 auto;
     }
 
-    /* ICONES (ZAP E INSTA) NA MESMA LINHA */
     .social-header {
         display: flex;
-        justify-content: center;
         gap: 15px;
+        justify-content: center;
     }
 
     .social-header img {
@@ -1577,21 +1594,109 @@ body::before {
         height: 20px;
     }
 
-    /* MENU ABAIXO BONITO */
+    /* MENU */
     .navbar {
         display: flex;
-        justify-content: center;
-        gap: 15px;
-        font-size: 13px;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
         padding: 10px 0;
+        font-size: 12px;
+        border-top: 1px solid rgba(255,255,255,0.1);
     }
 
-}
+    /* CONTEÚDO */
+    .destaque {
+        padding: 10px;
+    }
 
-/* ICONES MOBILE */
-@media (max-width: 768px) {
+    .titulo {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    /* GRID VIRA LISTA */
+    .grid {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 0;
+    }
+
+    .principal {
+        height: 220px;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .mini {
+        height: 140px;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    /* IMAGEM */
+    .principal img,
+    .mini img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* OVERLAY */
+    .overlay {
+        padding: 10px;
+        background: linear-gradient(
+            to top,
+            rgba(0,0,0,0.7),
+            transparent
+        );
+    }
+
+    /* TEXTO */
+    .overlay h3 {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .overlay p {
+        font-size: 13px;
+    }
+
+    /* ICONES */
+    .info-icons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        font-size: 11px;
+    }
+
     .info-icons img {
-        width: 12px;
-        height: 12px;
+        width: 12px !important;
+        height: 12px !important;
+    }
+
+    /* BOTÃO */
+    .btn-area {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .btn {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    /* FOOTER */
+    .footer {
+        padding: 20px 10px;
+        text-align: center;
+    }
+
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
     }
 }
