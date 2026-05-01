@@ -1596,8 +1596,8 @@ body::before {
 
     /* ICONES PEQUENOS */
 .info-icons img {
-    width: 16px !important;
-    height: 16px !important;
+    width: 12px !important;
+    height: 12px !important;
 }
 
 /* ICONES MOBILE */
