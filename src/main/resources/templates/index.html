@@ -43,11 +43,13 @@
 
         <!-- PRINCIPAL -->
         <div class="principal"
-             th:if="${novos.size() > 0}"
+             th:if="${novos != null and !novos.isEmpty()}"
              th:onclick="'window.location.href=\'/imovel/' + ${novos[0].id} + '\''">
 
-            <!-- 🔥 CLOUDINARY -->
-            <img th:src="${novos[0].imagens[0]}">
+            <!-- 🔒 SAFE: só usa [0] se existir; senão, usa placeholder -->
+            <img th:src="${(novos[0].imagens != null and !novos[0].imagens.isEmpty()) 
+                           ? novos[0].imagens[0] 
+                           : '/img/sem-imagem.png'}">
 
             <div class="overlay">
                 <h3 th:text="${novos[0].titulo}"></h3>
@@ -86,8 +88,10 @@
                  th:if="${stat.index > 0 and stat.index < 3}"
                  th:onclick="'window.location.href=\'/imovel/' + ${i.id} + '\''">
 
-                <!-- 🔥 CLOUDINARY -->
-                <img th:src="${i.imagens[0]}">
+                <!-- 🔒 SAFE -->
+                <img th:src="${(i.imagens != null and !i.imagens.isEmpty()) 
+                               ? i.imagens[0] 
+                               : '/img/sem-imagem.png'}">
 
                 <div class="overlay">
                     <h4 th:text="${i.titulo}"></h4>
