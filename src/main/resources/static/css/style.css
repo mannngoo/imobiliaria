@@ -1768,3 +1768,49 @@ html, body {
     }
 
 }
+@media (max-width: 768px) {
+
+    /* HEADER MAIS BAIXO E LIMPO */
+    .header-premium {
+        padding: 5px 8px;
+    }
+
+    /* LINHA DO TOPO */
+    .header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px; /* controla altura */
+    }
+
+    /* LOGO TOTALMENTE VISÍVEL */
+    .logo {
+        width: 80px;
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* ICONES VISÍVEIS */
+    .social-header {
+        display: flex;
+        gap: 8px;
+    }
+
+    .social-header img {
+        width: 16px;
+        height: 16px;
+    }
+
+    /* MENU MENOR E ORGANIZADO */
+    .navbar {
+        display: flex;
+        justify-content: space-around;
+        font-size: 10px; /* menor */
+        padding: 5px 0;
+    }
+
+    .navbar a {
+        font-size: 10px;
+    }
+
+}
