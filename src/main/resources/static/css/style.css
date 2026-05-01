@@ -2125,3 +2125,7 @@ html, body {
     height: 18px !important;
     max-width: 18px !important;
 }
+/* IMPEDE QUE IMG GLOBAL AFETE OS ICONES */
+.principal img {
+    width: auto !important;
+}
