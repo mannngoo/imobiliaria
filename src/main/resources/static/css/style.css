@@ -1723,3 +1723,48 @@ html, body {
         gap: 10px;
     }
 }
+@media (max-width: 768px) {
+
+    /* HEADER MAIS COMPACTO */
+    .header-premium {
+        padding: 5px 10px;
+    }
+
+    /* TOPO EM LINHA (IGUAL PC) */
+    .header-top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* LOGO MENOR E VISÍVEL */
+    .logo {
+        width: 90px;
+    }
+
+    /* ICONES AO LADO DA LOGO */
+    .social-header {
+        display: flex;
+        gap: 10px;
+    }
+
+    .social-header img {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* GARANTE QUE NÃO FIQUE SOBRE IMAGEM */
+    .social-header,
+    .header-top {
+        position: relative;
+        z-index: 10;
+    }
+
+    /* MENU MAIS FINO */
+    .navbar {
+        font-size: 11px;
+        padding: 5px 0;
+    }
+
+}
