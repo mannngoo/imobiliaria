@@ -1455,31 +1455,36 @@ body::before {
 
     transition: 0.3s ease !important;
 }
-/* ===== FOOTER MOBILE FIX ===== */
+/* ===== MOBILE PROFISSIONAL ===== */
 @media (max-width: 768px) {
 
-  footer {
-    padding: 20px 10px;
-    text-align: center;
+  .grid {
+    grid-template-columns: 1fr !important;
   }
 
-  footer .container,
-  footer .footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+  .card {
+    width: 100% !important;
   }
 
-  footer p,
-  footer a {
+  .card img {
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  p {
     font-size: 14px;
-    text-align: center;
-  }
-
-  footer img {
-    max-width: 100%;
-    height: auto;
   }
 
 }
