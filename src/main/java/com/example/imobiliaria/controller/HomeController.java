@@ -8,10 +8,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.imobiliaria.model.Imovel;
@@ -67,7 +64,6 @@ public class HomeController {
         return "imovel";
     }
 
-    // 🔐 PROTEÇÃO
     @GetMapping("/cadastrar")
     public String cadastrar(HttpSession session, Model model) {
 
@@ -115,12 +111,15 @@ public class HomeController {
             if (!file.isEmpty()) {
                 try {
                     String nome = System.currentTimeMillis() + "_" + file.getOriginalFilename();
-                    Path caminho = Paths.get("src/main/resources/static/uploads/" + nome);
+
+                    // 🔥 SALVA FORA DO STATIC (FUNCIONA NO RAILWAY)
+                    Path caminho = Paths.get(System.getProperty("user.dir") + "/uploads/" + nome);
 
                     Files.createDirectories(caminho.getParent());
                     Files.write(caminho, file.getBytes());
 
-                    caminhos.add("/uploads/" + nome);
+                    // 🔥 CAMINHO CORRETO PRA EXIBIR
+                    caminhos.add("uploads/" + nome);
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -129,7 +128,6 @@ public class HomeController {
         }
 
         imovel.setImagens(caminhos);
-
         repository.save(imovel);
 
         return "redirect:/cadastrar";
